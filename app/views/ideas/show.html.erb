@@ -1,0 +1,68 @@
+<div class="card-transparent animate__animated animate__bounce animate__faster" style="width: 61rem;" >
+  <div class="card-header special-card" style="background-color: rgba(245, 245, 245, 0.4);">
+      <h1 class='float-left'>
+          <span class='badge badge-pill badge-info'>
+          <%= @idea.id %>
+          </span>
+          <%= @idea.title %>
+      </h1>
+      <div class="card-block special-card" style="background-color: rgba(245, 245, 245, 0.4);">
+    <h5><%= @idea.description %></h5>
+  </div>
+</div>
+<div class="card-footer special-card" style="background-color: rgba(245, 245, 245, 0.4);" >
+    <p>created by <em><%= @idea.user.full_name %></em> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; created on <em> <%= @idea.created_at %></em></p>
+</div>
+
+  <div>
+    <%= link_to(
+      "Delete",
+      idea_path(@idea),
+      method: :delete,
+      class: 'btn btn-warning',
+      data: { confirm: 'are you sure?' },
+      )
+    %>
+    <%= link_to "Edit", edit_idea_path(@idea), class: 'btn btn-info'%>
+  </div>
+
+<br><hr style="height:10px"/>
+
+<h4 class='text-dark'>Please Leave a Review &#9786; </h4>
+
+  <div class="card-header special-card" style="background-color: rgba(245, 245, 245, 0.4);">
+      <%= form_with model: [@idea, @review], local: true do |f| %>
+        <div class='form-group'>
+          <%= f.label :rating %>
+          <%= f.select(:rating, options_for_select(1..5), class: 'form-control' )%>
+        </div>
+        <div class='form-group'>
+          <%= f.label :review %>
+          <%= f.text_area(:body, class: 'form-control', placeholder: 'Your thoughts here' )%>
+        </div>
+      <%= f.submit class: 'btn btn-info' %>
+    <% end %>
+  </div>
+<br>
+
+<h3 style="color:silver"> Here's what people are saying: </h3>
+
+<% @idea.reviews.each do |review| %>
+  <div class="card-transparent margin-bottom:10px">
+    <div class="card-header special-card" style="background-color: rgba(245, 245, 245, 0.4);">   
+      <h4>
+        <%= display_stars(review) %>
+        <p class='font-weight-lighter d-inline-block'>by <%= review.user.full_name %></p>
+        <%= link_to(
+          "Delete",
+          idea_review_path(review),
+          method: :delete,
+          class: 'btn btn-secondary float-right',
+          data: { confirm: 'delete this review?' }
+          )
+        %>
+      </h4>
+      <h5 class='review-body text-dark'><%= review.body %></h5>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,18 @@
+<h1>Contact</h1>
+<div class='shadow-sm p-3 mb-5 bg-white rounded'>
+	<%= form_with url: '/thank_you', local: true do |f| %>
+		<div class='form-group'>
+			<%= f.label :name %>
+			<%= f.text_field :name, class: 'form-control' %>
+		</div>
+		<div class='form-group'>
+			<%= f.label :email %>
+			<%= f.email_field :email, class: 'form-control' %>
+		</div>
+		<div class='form-group'>
+			<%= f.label :question %>
+			<%= f.text_area :question, class: 'form-control' %>
+		</div>
+		<%= f.submit 'Send', class: 'btn btn-primary' %>
+	<% end %>
+</div>

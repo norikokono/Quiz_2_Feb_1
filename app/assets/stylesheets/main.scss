@@ -1,0 +1,86 @@
+body {
+  font-family: 'Special Elite', cursive;
+  min-height: 100vh;
+  background-image: linear-gradient(transparent, white 75%), image-url('birmingham-museums-trust-ScZwMqoxcls-unsplash.jpg'); 
+  position: absolute;
+  left: 200px;
+  margin-top: 50px;
+  padding-bottom: 50px;
+}
+
+.navbar{
+padding-left:0px;
+padding-right:30px;
+margin-left:60px;
+margin-right:60px;
+width: 1400px;
+}
+
+h1 {
+background: -webkit-linear-gradient(rgb(3, 102, 3), rgb(228, 135, 13));
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+p{
+  color: black
+}
+
+a, u {
+  text-decoration: none;
+}
+
+a:link {
+  color: rgb(31, 14, 2);
+}
+
+/* visited link */
+a:visited {
+  color: rgb(119, 54, 7);
+}
+
+/* mouse over link */
+a:hover {
+  color: rgb(170, 36, 163);
+}
+
+em {
+  color: rgb(77, 42, 25)
+}
+
+.card {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+  margin-bottom: 80px;
+
+}
+
+.card-block {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 1.25rem;
+}
+
+.card-title {
+  margin-bottom: 0.25rem;
+}
+
+textarea {
+width: 300px;
+height: 150px;
+}
+
+

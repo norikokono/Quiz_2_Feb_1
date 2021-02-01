@@ -1,0 +1,24 @@
+<nav class='navbar navbar-light bg-light mb-5'>
+  <ul>
+    <span class='navbar-brand mb-0 h1'>Idea Factory 🤖 &nbsp;&nbsp;
+      <%= link_to 'Home', home_path, class: 'nav-item' %>
+      |
+      <%= link_to 'View Ideas', ideas_path, class: 'nav-item' %>
+      |
+      <%= link_to 'Add Idea', new_idea_path, class: 'nav-item' %>
+      |
+      <%= link_to 'About', about_path, class: 'nav-item' %>
+      |
+      <%= link_to 'Contact Us', contact_path, class: 'nav-item' %>
+    </span>
+  </ul>
+  <div>
+    <% if user_signed_in? %>
+      <span class='text-muted mr-3'><h5>Hello ♡  <%= current_user.full_name %></span> &nbsp;&nbsp;
+      <%= link_to "Log Out", session_path, method: :delete, class: 'btn btn-secondary' %></h5>
+    <% else %>
+      <%= link_to "Log In", new_session_path, class: 'btn btn-dark' %>
+      <%= link_to "Sign Up", new_user_path, class: 'btn btn-secondary' %>
+    <% end %>
+  </div>
+</nav>
