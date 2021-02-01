@@ -8,16 +8,16 @@
       <div class="card-block special-card" style="background-color: rgba(245, 245, 245, 0.4);"><h4><%= link_to idea.description, idea_path(idea) %></h4 ></div>
       <div class="card-footer special-card" style="background-color: rgba(245, 245, 245, 0.4);">
         <p>created by <%= idea.user.full_name %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; created on <%= idea.created_at %> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <%= idea.likes.count%> likes ❤️  &nbsp;&nbsp;&nbsp;&nbsp; <%= idea.joins.count%> members 🤖 </p>
+        ❤️ <%= idea.likes.count%> likes  &nbsp;&nbsp;&nbsp;&nbsp; 🤖 <%= idea.joins.count%> members</p>
         
   <div class="row">
         <div class="col-sm-2">
           <% if user_signed_in?  && can?(:like, idea)%>
               <% like = current_user.likes.find_by_idea_id(idea) %>
               <% if like %>
-                <%= button_to 'Liked', like_path(like), method: :delete %>
+                <%= button_to 'Liked', like_path(like), method: :delete, class: "btn btn-small btn-light" %>
               <% else %>
-                <%= button_to 'Like', idea_likes_path(idea), method: :post %>
+                <%= button_to 'Like', idea_likes_path(idea), method: :post, class: "btn btn-small btn-light"%>
               <% end %>
           <% end %>
           </div>
@@ -25,9 +25,9 @@
           <% if user_signed_in?  && can?(:join, idea)%>
               <% join = current_user.joins.find_by_idea_id(idea) %>
               <% if join %>
-                <%= button_to 'Joined', join_path(join), method: :delete %>
+                <%= button_to 'Joined', join_path(join), method: :delete, class: "btn btn-small btn-light" %>
               <% else %>
-                <%= button_to 'Join', idea_joins_path(idea), method: :post %>
+                <%= button_to 'Join', idea_joins_path(idea), method: :post, class: "btn btn-small btn-light" %>
               <% end %>
           <% end %>
         </div>

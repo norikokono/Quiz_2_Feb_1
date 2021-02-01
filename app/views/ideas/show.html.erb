@@ -28,7 +28,7 @@
 
 <br><hr style="height:10px"/>
 
-<h4 class='text-dark'>Please Leave a Review &#9786; </h4>
+<h4 class='text-info'>Please Leave a Review &#9786; </h4>
 
   <div class="card-header special-card" style="background-color: rgba(245, 245, 245, 0.4);">
       <%= form_with model: [@idea, @review], local: true do |f| %>
@@ -36,6 +36,7 @@
           <%= f.label :rating %>
           <%= f.select(:rating, options_for_select(1..5), class: 'form-control' )%>
         </div>
+        <br>
         <div class='form-group'>
           <%= f.label :review %>
           <%= f.text_area(:body, class: 'form-control', placeholder: 'Your thoughts here' )%>
